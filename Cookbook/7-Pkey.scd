@@ -1,4 +1,13 @@
 
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Pkey(\keyname)                                - reference value from another key
+// Pkey(\keyname).if(truePattern, falsePattern)  - conditional pattern branching
+// Pid()                                         - identity pattern (pass-through)
+
 // PKEY
 //
 // Pkey allows you to REFER to the value of a key already defined in your Pbind.

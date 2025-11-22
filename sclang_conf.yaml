@@ -1,0 +1,15 @@
+includePaths:
+  - /Users/chrysanth/Desktop/M A N I F E S T/_PROJECTS/LDN-WORKSHOP
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/SZPat
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/BandSplitter
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Collapse
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Singleton
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Connection
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/WindowViewRecall
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/ServerView
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Log
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/LanguageServer
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Require
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Deferred
+postInlineWarnings: false
+excludeDefaultPaths: false

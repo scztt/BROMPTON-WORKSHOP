@@ -1,4 +1,12 @@
 
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Event.addEventType(\name, function)  - create custom event types
+// MIDIOut.newByName(device, port)      - create MIDI output connection
+
 (
 Event.addEventType(\midicc, {
     var event;

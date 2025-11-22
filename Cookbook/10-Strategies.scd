@@ -1,3 +1,13 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// MIDIdef.cc(\name, function)      - respond to MIDI control change
+// MIDIdef.program(\name, function) - respond to MIDI program change
+// LinkClock(tempo)                 - sync with Ableton Link
+// Pdef().set(\key, value)          - set default values for Pdef keys
+
 // Helpful strategies for larger-scale composition in SuperCollider
 
 // == LIVE PERFORMANCE STRATEGIES ==
@@ -271,16 +281,14 @@ Pdef(\embellishment, {
 
 
 Pdef(\player, 
-    Ppar([
-        // pass based events forward
-        Pid(),
-        
-        Pmaybe(
-            Pkey(\embellish), // if embellish is true...
-            Pbind(type: \pattern, pattern: \embellishment, sustain: 16) // play a pattern
-        )
-    ]) 
-    <> Pdef(\base)
+    Pwith(
+        Pdef(\base),
+        {
+            if (~embellish) {
+                Pdef(\embellishment)
+            }
+        }
+    )
 ).play;
 )
 

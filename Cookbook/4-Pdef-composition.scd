@@ -1,3 +1,10 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Pdef(\left) <> Pdef(\right)  - compose/merge two patterns (left takes precedence)
+
 // === Composition ===
 //
 // "Composition" in a computer science sense means combining 

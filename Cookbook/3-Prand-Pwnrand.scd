@@ -1,12 +1,10 @@
-// RANDOMIZATION PATTERNS
-//
-// Pwrand:     play items from a list ion random order
-// Pshufpart:  play items in a shuffled order
-// Pwnrand:    play random items with different weights
-// Pwhite:     random number generation
-// Pexprand:   exponential random number generation (use for e.g. frequencies)
-
-
+// ===  NEW CLASSES/METHODS: === 
+// Prand([values], repeats)                     - random selection with repeats
+// Pshufpart([values], repeats)                 - shuffled order, no close repeats  
+// Pwnrand([values], [weights], repeats)        - weighted random selection
+// Pwnrand.choose(value -> weight, ...)         - weighted random with cleaner syntax
+// Pwhite(lo, hi)                               - white noise random numbers
+// Pexprand(lo, hi)                             - exponential random numbers
 
 // === Prand === 
 // pulls items from a list randomly (with repeats)

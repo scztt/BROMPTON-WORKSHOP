@@ -75,7 +75,7 @@ SynthDef(\epiano, {
     );
     noise = Pan2.ar(noise, pan, 0.34);
     sig = sig + noise;
-    sig = MoogLadder.ar(sig, filtf, 0.55);
+    sig = MoogLadder.ar(sig, filtf, 0.35);
     sig = sig * EnvGen.ar(Env([1, 1, 1, 0], [1, release, 0.1], releaseNode:1), gate:gate, doneAction:2);
     a = DetectSilence.ar(sig[0], doneAction:2);
     

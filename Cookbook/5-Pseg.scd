@@ -1,3 +1,10 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Pseg([levels], [times], curve).repeat  - envelope segments over time
+
 (
 Pdef(\base, Pbind(
     instrument: 'epiano',

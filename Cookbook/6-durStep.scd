@@ -1,3 +1,10 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// pattern.durStep(duration)  - hold pattern values for specified duration
+
 (
 Pdef(\base, Pbind(
     instrument: 'epiano',

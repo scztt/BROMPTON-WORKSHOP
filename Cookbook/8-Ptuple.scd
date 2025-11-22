@@ -1,3 +1,12 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Ptuple([pattern1, pattern2, ...])  - combine patterns into arrays/chords
+// Pclump(count, pattern)              - group pattern values into arrays
+// pattern.flatten                     - flatten arrays back to individual events
+
 // How can I play chords?
 // Ptuple, Pclump, Pflatten
 

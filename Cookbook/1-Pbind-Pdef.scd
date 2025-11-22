@@ -1,3 +1,7 @@
+// NEW CLASSES/METHODS:
+// Pbind(key1: pattern1, key2: pattern2, ...)  - creates event pattern
+// Pdef(\name, pattern)                        - named pattern container
+
 // EVENT KEYS (Event Quick Reference)
 
 // [what to play]

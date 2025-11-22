@@ -2,6 +2,9 @@
 Require("../SynthDefs/*");
 )
 
+// NEW CLASSES/METHODS:
+// Pwith(inputPattern, {function})  - transform each event through a function
+
 (
 Pdef(\base, Pbind(
     instrument: 'additive',
@@ -171,6 +174,45 @@ Pdef(\pattern,
         ),
         {
             Pdef(\rampPhrase)
+        }
+    )
+).play;
+)
+
+
+
+// Conditional forking
+// Q: What if ONCE IN A WHILE I want to trigger a parallel event on top of my existing pattern...
+// A: Pmaybe! Pmaybe is like Pif but if the condition is false it just outputs silence. 
+( 
+// slow bass
+Pdef(\slowBass, Pbind(
+    instrument: 'epiano',
+    dur: Prand([3, 2], inf) / 8,
+    sustain: 2,
+    filtf: 900,
+    attack: 0.02, release: 4,
+    amp: 0.3,
+    octave: 3,
+    highNote: Pwnrand([false, true], [5, 1])
+));
+
+Pdef(\ppar, 
+    // Two parallel patterns...
+    Pwith(
+        Pdef(\slowBass) <> Pdef(\base),
+        {
+            if (~highNote) {
+                Pbind(
+                    amp: 0.1,
+                    attack: 5, 
+                    release: 5,
+                    sustainLevel: 1,
+                    sustain: 5,
+                    octave: 6,
+                    retrig: 3,
+                ) 
+            }
         }
     )
 ).play;

@@ -1,3 +1,11 @@
+( // _SETUP_
+Require("../SynthDefs/*")
+)
+
+// NEW CLASSES/METHODS:
+// Ppar([pattern1, pattern2, ...])  - play multiple patterns in parallel
+// Pmaybe(condition, pattern)       - conditionally play pattern or silence
+
 // PPAR
 //
 // Ppar allows you to play multple Pbinds with different time in parallel
