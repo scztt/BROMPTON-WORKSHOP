@@ -50,7 +50,7 @@ SynthDef(\resonantSnare, {
     sig = LockhartWavefolder.ar(sig, 7);
     // sig = SoftClipAmp8.ar(sig, 2.9);
     warp = \warp.kr(0.9) * 8;
-    bend = LFDNoise3.ar(1).range(-23, 23).midiratio;
+    bend = LFDNoise3.ar(1).range(-1, 1).midiratio;
     8.do {
         |i|
         var inv = [-1, 1].rotate(i);
@@ -75,15 +75,13 @@ SynthDef(\resonantSnare, {
     
     sig = HardCompress.ar(sig);
     
-    sig[1] = sig[1] + (-16.dbamp * (delayMix * sig[1]).feed({
+    sig[1] = sig[1] + (-26.dbamp * (delayMix * sig[1]).feed({
         |s|
         s = s - FreqShift.ar(s, -0.08, 0.3);
         HPF.ar(LPF.ar(s, 1500), 60) * -6.dbamp;
     }, [3, 5.02]/8/tempo));
     
-    // sig = sig[1];
     sig = -12.dbamp * sig.sum;
-    // DetectSilence.ar(sig, doneAction:2);
     
     sig = Pan2.ar(sig, \pan.kr(0).lag(0.02))[0];
     
