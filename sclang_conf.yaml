@@ -7,7 +7,9 @@ includePaths:
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/Connection
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/WindowViewRecall
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/ServerView
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/FreeAfter
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/Log
+  - /Users/chrysanth/Desktop/scztt-Core-Quarks/Preference
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/LanguageServer
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/Require
   - /Users/chrysanth/Desktop/scztt-Core-Quarks/Deferred

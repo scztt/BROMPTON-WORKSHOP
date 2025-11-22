@@ -8,4 +8,7 @@ Quarks.install("https://github.com/scztt/Connection.quark");
 Quarks.install("https://github.com/scztt/LanguageServer.quark");
 )
 
-QuarkEditor.open("/Users/chrysanth/Desktop/Scztt-Core-Quarks/PatternToolkit")
+(
+
+Quarks.install("/Volumes/chrys-rescue/WorkshopSupplies/quarks")
+)
