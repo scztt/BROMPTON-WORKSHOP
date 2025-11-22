@@ -3,11 +3,14 @@
 Require("../SynthDefs/*")
 )
 
-// NEW CLASSES/METHODS:
-// Event.addEventType(\name, function)  - create custom event types
-// MIDIOut.newByName(device, port)      - create MIDI output connection
+(
+// Setup and list available MIDI destinations
+MIDIClient.init;
+MIDIClient.destinations();
+)
 
 (
+// Run once before running other code, to define midicc and midinote event types.
 Event.addEventType(\midicc, {
     var event;
     127.do {
@@ -45,41 +48,29 @@ Event.addEventType(\midinote, {
 
 (
 Ndef(\test, Pbind(
-    type: \midi,
-    midicmd: \noteOn,
+    type: \midinote,
     midiout: MIDIOut.newByName("IAC Driver", "Bus 1"),
-    dur: 1/6,
+    dur: Pwnrand.choose(
+        1/8 -> 5,
+        3/8 -> 1
+    ),
+    legato: 1.2,
+    scale: Scale.partch_o2,
     octave: 3,
-    legato: Pwnrand([0.4, 0.6, 2.67], [2, 2, 1], inf),
-    velocity: 127 * Pseq([1, 0.2, 0.7], inf),
-    degree: Pseq([0, 4, 1, 6, -2], inf) + Pseq([0, -1, -2, 1], inf).durStep(2),
-    scale: Scale.melodicMinor,
-    legato: 0.7, 
-    finish: {
-        currentEnvironment.postln;
-    } 
+    vel: Pwhite(0.0, 1.0),
+    degree: Pseq([0, 2, 6, 2, -1], inf),
+    
+    cc1: Pseg([0.0, 1.0, 0.0], [2, 2]).repeat,
+    cc2: Pwnrand.choose(
+        0.2 -> 10,
+        1.0 -> 1
+    )
+    // cc1: Pseg([0.0, 1.0, 0.0], [8, 8]).repeat,
+    // cc1: Pseg([0.0, 1.0, 0.0], [8, 8]).repeat,
+    // cc1: Pseg([0.0, 1.0, 0.0], [8, 8]).repeat,
+    // cc1: Pseg([0.0, 1.0, 0.0], [8, 8]).repeat,
+    // cc1: Pseg([0.0, 1.0, 0.0], [8, 8]).repeat,
 )).play;
-
-Ndef(\ctrl, Pbind(
-    type: \midi,
-    midicmd: \control,
-    midiout: MIDIOut.newByName("IAC Driver", "Bus 1"),
-    dur: 1/2,
-    chan: 0,
-    ctlNum: 2,
-    control: Pwhite(60.0, 127.0),
-)).play;
-
-
-Ndef(\ctrl2, Pbind(
-    type: \midi,
-    midicmd: \control,
-    midiout: MIDIOut.newByName("IAC Driver", "Bus 1"),
-    dur: 1/2,
-    chan: 0,
-    ctlNum: 1,
-    control: Pwhite(0.0, 127.0),
-)).play
 )
 
 
